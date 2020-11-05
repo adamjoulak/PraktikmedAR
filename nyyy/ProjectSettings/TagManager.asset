@@ -6,6 +6,7 @@ TagManager:
   tags:
   - PickupButterAndSmear
   - vbBtnObjReset
+  - InstructionDisplay
   layers:
   - Default
   - TransparentFX
