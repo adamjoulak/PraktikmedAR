@@ -6,6 +6,15 @@ TagManager:
   tags:
   - PickupButterAndSmear
   - vbBtnObjReset
+  - InstructionText
+  - FindTargetTMP
+  - PanelFindTargetTMP
+  - PanelInstructionsTM
+  - FinishedWithTaskButton
+  - Butter
+  - Bread
+  - Cheese
+  - Tomato
   layers:
   - Default
   - TransparentFX
