@@ -5,8 +5,7 @@ using TMPro;
 using UnityEngine;
 using Vuforia;
 
-public class vbButtonReset : MonoBehaviour
-{
+public class vbButtonReset : MonoBehaviour {
     
     public GameObject vbBtnObjReset;
     public TextMeshPro tmm;
@@ -21,11 +20,9 @@ public class vbButtonReset : MonoBehaviour
         Debug.Log("found reset button");
         vbBtnObjReset.GetComponent<VirtualButtonBehaviour>().RegisterOnButtonPressed(OnButtonPressed);
         vbBtnObjReset.GetComponent<VirtualButtonBehaviour>().RegisterOnButtonReleased(OnButtonReleased);
-
     }
 
-    public void SetPanelActive()
-    {
+    public void SetPanelActive() {
         topPanel.SetActive(true);
     }
     /*
@@ -44,14 +41,12 @@ public class vbButtonReset : MonoBehaviour
         }
         else
         {
-            tmm.text = "Tryck 'Done' Efter Avklarat Delmoment";
+            tmm.text = "Tryck 'Done' Efter Avklarat del moment";
 
         }
     }
 
-    public void OnButtonPressed(VirtualButtonBehaviour vb)
-    {
-
+    public void OnButtonPressed(VirtualButtonBehaviour vb) {
         SetPanelActive();
         SetPanelText(true);
         Debug.Log("Top text found Found");

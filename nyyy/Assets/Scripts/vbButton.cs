@@ -1,21 +1,21 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Vuforia;
+using TMPro;
+using System;
 
 public class vbButton : MonoBehaviour {
 
     public vbButtonReset vbButtonReset;
-
     public GameObject vbBtnObj;
-    private TextMesh tm;
     public GameObject sidePanel;
-
     public GameObject butter;
     public GameObject bread;
     public GameObject cheese;
     public GameObject tomato;
+    public Text textObject;
 
 
     int counter;
@@ -30,35 +30,34 @@ public class vbButton : MonoBehaviour {
         vbBtnObj = GameObject.Find("FinishedWithTaskButton");
         vbBtnObj.GetComponent<VirtualButtonBehaviour>().RegisterOnButtonPressed(OnButtonPressed);
         vbBtnObj.GetComponent<VirtualButtonBehaviour>().RegisterOnButtonReleased(OnButtonReleased);
-        counter = 0;
         SetPanelInactive();
+        counter = 0;
     }
 
-    public void SetPanelActive()
-    {
+    public void SetPanelActive() {
         sidePanel.SetActive(true);
     }
 
-    public void SetPanelInactive()
-    {
+    public void SetPanelInactive() {
         sidePanel.SetActive(false);
+        /*
+        SetPanelActive();
+        SetPanelText("Panel is inactive");
+        Debug.Log("FUCK");
+        */
     }
 
-    public void SetPanelText(String text)
+    public void SetPanelText(String input)
     {
-        tm = (TextMesh)GameObject.FindGameObjectWithTag("InstructionText").GetComponent<TextMesh>();
-        Debug.Log("Found");
-        tm.text = text;
+        textObject = (Text)GameObject.FindGameObjectWithTag("InstructionText").GetComponent<Text>();
+        textObject.text = input;
     }
 
-    public void CasesForInstructions(int imageTargetNumber)
-
-    {
-        switch (imageTargetNumber)
-        {
+    public void CasesForInstructions(int imageTargetNumber) {
+        switch (imageTargetNumber) {
             case 0:
                 SetPanelActive();
-                SetPanelText("1. Bre smöret på mackan med hjälp av kniven");
+                SetPanelText("1. Find butter and bread\n2. Spread butter on bread\n3. ");
                 vbButtonReset.SetPanelText(false);
                 break;
             case 1:
@@ -75,23 +74,24 @@ public class vbButton : MonoBehaviour {
             case 4:
                 SetPanelText("5. Du är nu färdig, Smaklig måltid");
                 break;
-            
-        }
+            case 5:
+                resetInstructions();
+                break;
 
-        if(imageTargetNumber == 6)
-        {
-            vbButtonReset.SetPanelActive();
-            vbButtonReset.SetPanelText(true);
-            tomato.SetActive(false);
-            cheese.SetActive(false);
-            counter = 0;
         }
     }
 
-    public void OnButtonPressed(VirtualButtonBehaviour vb)
-    {
-        CasesForInstructions(counter);
-        counter++;
+    public void resetInstructions() {
+        vbButtonReset.SetPanelActive();
+        vbButtonReset.SetPanelText(true);
+        tomato.SetActive(false);
+        cheese.SetActive(false);
+        counter = 0;
+    }
+
+    public void OnButtonPressed(VirtualButtonBehaviour vb) {
+        CasesForInstructions(counter++);
+        //counter++;
         Debug.Log("Button pressed");
     }
 
