@@ -13,8 +13,8 @@ TagManager:
   - FinishedWithTaskButton
   - Butter
   - Bread
-  - Cheese
   - Tomato
+  - Knife
   layers:
   - Default
   - TransparentFX

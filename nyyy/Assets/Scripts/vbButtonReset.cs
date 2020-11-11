@@ -35,12 +35,10 @@ public class vbButtonReset : MonoBehaviour {
     public void SetPanelText(bool isReset)
     {
         tmm = (TextMeshPro)GameObject.FindGameObjectWithTag("FindTargetTMP").GetComponent<TextMeshPro>();
-        if (isReset)
-        {
+        if (isReset) {
             tmm.text = "Hitta Alla Bestick & Ingredienser";
         }
-        else
-        {
+        else {
             tmm.text = "Tryck 'Done' Efter Avklarat del moment";
 
         }
@@ -49,8 +47,7 @@ public class vbButtonReset : MonoBehaviour {
     public void OnButtonPressed(VirtualButtonBehaviour vb) {
         SetPanelActive();
         SetPanelText(true);
-        Debug.Log("Top text found Found");
-        Debug.Log("Button pressed");
+        Debug.Log("Button RESET pressed");
     }
 
     public void OnButtonReleased(VirtualButtonBehaviour vb)

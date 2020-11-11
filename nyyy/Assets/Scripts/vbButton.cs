@@ -7,29 +7,28 @@ using TMPro;
 using System;
 
 public class vbButton : MonoBehaviour {
-
     public vbButtonReset vbButtonReset;
-    public GameObject vbBtnObj;
+    public GameObject vbDoneBtnObj;
     public GameObject sidePanel;
     public GameObject butter;
     public GameObject bread;
-    public GameObject cheese;
+    public GameObject knife;
     public GameObject tomato;
     public Text textObject;
-
 
     int counter;
 
     // Use this for initialization
     void Start () {
         tomato = GameObject.FindGameObjectWithTag("Tomato");
-        cheese = GameObject.FindGameObjectWithTag("Cheese");
-        cheese.SetActive(false);
+        knife = GameObject.FindGameObjectWithTag("Knife");
+        knife.SetActive(false);
         tomato.SetActive(false);
         vbButtonReset = GetComponent<vbButtonReset>();
-        vbBtnObj = GameObject.Find("FinishedWithTaskButton");
-        vbBtnObj.GetComponent<VirtualButtonBehaviour>().RegisterOnButtonPressed(OnButtonPressed);
-        vbBtnObj.GetComponent<VirtualButtonBehaviour>().RegisterOnButtonReleased(OnButtonReleased);
+
+        vbDoneBtnObj = GameObject.Find("DoneBtnObject");
+        vbDoneBtnObj.GetComponent<VirtualButtonBehaviour>().RegisterOnButtonPressed(OnButtonPressed);
+        vbDoneBtnObj.GetComponent<VirtualButtonBehaviour>().RegisterOnButtonReleased(OnButtonReleased);
         SetPanelInactive();
         counter = 0;
     }
@@ -47,8 +46,7 @@ public class vbButton : MonoBehaviour {
         */
     }
 
-    public void SetPanelText(String input)
-    {
+    public void SetPanelText(String input) {
         textObject = (Text)GameObject.FindGameObjectWithTag("InstructionText").GetComponent<Text>();
         textObject.text = input;
     }
@@ -56,28 +54,33 @@ public class vbButton : MonoBehaviour {
     public void CasesForInstructions(int imageTargetNumber) {
         switch (imageTargetNumber) {
             case 0:
+                Debug.Log("CASE 00");
                 SetPanelActive();
-                SetPanelText("1. Find butter and bread\n2. Spread butter on bread\n3. ");
+                SetPanelText("Step 1:\n1. Find butter and bread\n2. Spread butter on bread\n3. Push done when completed");
                 vbButtonReset.SetPanelText(false);
                 break;
             case 1:
+                Debug.Log("CASE 01");
+                SetPanelText("Step 2:\n1. Find knife and tomato\n2. Use the knife to slice tomato into smaller pieces and place them on bread\n3. Push done when completed");
+                //bread.SetActive(false);
+                //butter.SetActive(false);
                 tomato.SetActive(true);
-                cheese.SetActive(true);
-                SetPanelText("2. Lokalisera pålägg");
+                knife.SetActive(true);
                 break;
             case 2:
-                SetPanelText("3. Lägg pålägg på mackan");
+                Debug.Log("CASE 02");
+                SetPanelText("The sandwich is done\nPush done to complete the process");
+                /*
+                bread.SetActive(false);
+                butter.SetActive(false);
+                tomato.SetActive(false);
+                knife.SetActive(false);
+                */
                 break;
             case 3:
-                SetPanelText("4. Häll dricka i koppen");
-                break;
-            case 4:
-                SetPanelText("5. Du är nu färdig, Smaklig måltid");
-                break;
-            case 5:
+                Debug.Log("CASE 03");
                 resetInstructions();
                 break;
-
         }
     }
 
@@ -85,19 +88,16 @@ public class vbButton : MonoBehaviour {
         vbButtonReset.SetPanelActive();
         vbButtonReset.SetPanelText(true);
         tomato.SetActive(false);
-        cheese.SetActive(false);
+        knife.SetActive(false);
         counter = 0;
     }
 
     public void OnButtonPressed(VirtualButtonBehaviour vb) {
         CasesForInstructions(counter++);
         //counter++;
-        Debug.Log("Button pressed");
     }
 
-    public void OnButtonReleased(VirtualButtonBehaviour vb)
-    {
-        
+    public void OnButtonReleased(VirtualButtonBehaviour vb) {
         Debug.Log("Button released");
     }
 }
