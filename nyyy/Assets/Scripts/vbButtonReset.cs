@@ -1,20 +1,19 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 using Vuforia;
+using TMPro;
+using System;
 
 public class vbButtonReset : MonoBehaviour {
-    
     public GameObject vbBtnObjReset;
-    public TextMeshPro tmm;
     public GameObject topPanel;
     private bool isReset;
+    public Text textObject;
 
     // Use this for initialization
-    void Start()
-    {
+    void Start() {
         topPanel = GameObject.FindGameObjectWithTag("PanelFindTargetTMP");
         vbBtnObjReset = GameObject.FindGameObjectWithTag("vbBtnObjReset");
         Debug.Log("found reset button");
@@ -32,16 +31,20 @@ public class vbButtonReset : MonoBehaviour {
     }
     */
 
-    public void SetPanelText(bool isReset)
-    {
-        tmm = (TextMeshPro)GameObject.FindGameObjectWithTag("FindTargetTMP").GetComponent<TextMeshPro>();
+    public void SetPanelText(bool isReset) {
+        //   textObject = (Text)GameObject.FindGameObjectWithTag("InstructionText").GetComponent<Text>();
+
+
+        textObject = (Text)GameObject.FindGameObjectWithTag("topPanelText").GetComponent<Text>();
         if (isReset) {
-            tmm.text = "Hitta Alla Bestick & Ingredienser";
+            textObject.text = "Hitta Alla Bestick & Ingredienser";
+            Debug.Log("Funkar 1");
         }
         else {
-            tmm.text = "Tryck 'Done' Efter Avklarat del moment";
-
+            textObject.text = "Enjoy your meal :)";
+            Debug.Log("Funkar 2");
         }
+        
     }
 
     public void OnButtonPressed(VirtualButtonBehaviour vb) {
@@ -50,8 +53,7 @@ public class vbButtonReset : MonoBehaviour {
         Debug.Log("Button RESET pressed");
     }
 
-    public void OnButtonReleased(VirtualButtonBehaviour vb)
-    {
+    public void OnButtonReleased(VirtualButtonBehaviour vb) {
 
         Debug.Log("Button released");
     }

@@ -15,6 +15,7 @@ TagManager:
   - Bread
   - Tomato
   - Knife
+  - topPanelText
   layers:
   - Default
   - TransparentFX

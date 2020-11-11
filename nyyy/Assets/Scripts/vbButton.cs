@@ -7,7 +7,7 @@ using TMPro;
 using System;
 
 public class vbButton : MonoBehaviour {
-    public vbButtonReset vbButtonReset;
+    private vbButtonReset vbButtonReset;
     public GameObject vbDoneBtnObj;
     public GameObject sidePanel;
     public GameObject butter;
@@ -54,39 +54,54 @@ public class vbButton : MonoBehaviour {
     public void CasesForInstructions(int imageTargetNumber) {
         switch (imageTargetNumber) {
             case 0:
-                Debug.Log("CASE 00");
                 SetPanelActive();
                 SetPanelText("Step 1:\n1. Find butter and bread\n2. Spread butter on bread\n3. Push done when completed");
-                vbButtonReset.SetPanelText(false);
+                vbButtonReset.SetPanelText(true);
+                StartCoroutine(ExampleCoroutine());
                 break;
             case 1:
-                Debug.Log("CASE 01");
                 SetPanelText("Step 2:\n1. Find knife and tomato\n2. Use the knife to slice tomato into smaller pieces and place them on bread\n3. Push done when completed");
-                //bread.SetActive(false);
-                //butter.SetActive(false);
+                bread.SetActive(true);
+                butter.SetActive(false);
                 tomato.SetActive(true);
                 knife.SetActive(true);
+                StartCoroutine(ExampleCoroutine());
                 break;
             case 2:
-                Debug.Log("CASE 02");
                 SetPanelText("The sandwich is done\nPush done to complete the process");
-                /*
+                vbButtonReset.SetPanelText(false);
                 bread.SetActive(false);
                 butter.SetActive(false);
                 tomato.SetActive(false);
                 knife.SetActive(false);
-                */
+                StartCoroutine(ExampleCoroutine());
                 break;
             case 3:
-                Debug.Log("CASE 03");
                 resetInstructions();
                 break;
         }
     }
 
+    
+    IEnumerator ExampleCoroutine() {
+        //Print the time of when the function is first called.
+        Debug.Log("Started Coroutine at timestamp : " + Time.time);
+        vbDoneBtnObj = GameObject.Find("DoneBtnObject");
+        vbDoneBtnObj.GetComponent<VirtualButtonBehaviour>().enabled = false;
+        //yield on a new YieldInstruction that waits for 5 seconds.
+        yield return new WaitForSeconds(3);
+        vbDoneBtnObj.GetComponent<VirtualButtonBehaviour>().enabled = true;
+
+        //After we have waited 5 seconds print the time again.
+        Debug.Log("Finished Coroutine at timestamp : " + Time.time);
+    }
+    
+
+
+
     public void resetInstructions() {
         vbButtonReset.SetPanelActive();
-        vbButtonReset.SetPanelText(true);
+        vbButtonReset.SetPanelText(false);
         tomato.SetActive(false);
         knife.SetActive(false);
         counter = 0;
