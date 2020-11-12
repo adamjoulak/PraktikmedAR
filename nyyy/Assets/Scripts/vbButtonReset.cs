@@ -31,25 +31,22 @@ public class vbButtonReset : MonoBehaviour {
     }
     */
 
-    public void SetPanelText(bool isReset) {
+    public void SetTopPanelText(bool isReset) {
         //   textObject = (Text)GameObject.FindGameObjectWithTag("InstructionText").GetComponent<Text>();
-
 
         textObject = (Text)GameObject.FindGameObjectWithTag("topPanelText").GetComponent<Text>();
         if (isReset) {
-            textObject.text = "Hitta Alla Bestick & Ingredienser";
-            Debug.Log("Funkar 1");
+            textObject.text = "Find all the cutlery & ingredients";
         }
         else {
             textObject.text = "Enjoy your meal :)";
-            Debug.Log("Funkar 2");
         }
         
     }
 
     public void OnButtonPressed(VirtualButtonBehaviour vb) {
         SetPanelActive();
-        SetPanelText(true);
+        SetTopPanelText(true);
         Debug.Log("Button RESET pressed");
     }
 
