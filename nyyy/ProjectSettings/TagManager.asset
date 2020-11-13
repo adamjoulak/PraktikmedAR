@@ -19,8 +19,8 @@ TagManager:
   - VanillaYoghurt
   - Strawberry
   - Glas
-  - Blueberry
   - Banana
+  - Mixer
   layers:
   - Default
   - TransparentFX
