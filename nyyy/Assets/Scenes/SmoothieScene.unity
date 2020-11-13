@@ -5601,7 +5601,7 @@ MonoBehaviour:
   animIdleAndPlayVanillaYoghurt: {fileID: 62291216}
   animIdleAndPlayStrawberry: {fileID: 461693289}
   animIdleAndPlayGlas: {fileID: 1552478194}
-  animIdleAndPlayMixer: {fileID: 0}
+  animIdleAndPlayMixer: {fileID: 1347622826}
   animIdleAndPlayBanana: {fileID: 1161941958}
 --- !u!114 &1749118753
 MonoBehaviour:
