@@ -16,6 +16,11 @@ TagManager:
   - Tomato
   - Knife
   - topPanelText
+  - VanillaYoghurt
+  - Strawberry
+  - Glas
+  - Blueberry
+  - Banana
   layers:
   - Default
   - TransparentFX
