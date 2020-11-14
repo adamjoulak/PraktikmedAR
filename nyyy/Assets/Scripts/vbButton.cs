@@ -23,8 +23,6 @@ public class vbButton : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        tomato = GameObject.FindGameObjectWithTag("Tomato");
-        knife = GameObject.FindGameObjectWithTag("Knife");
         /*
         knife.SetActive(false);
         tomato.SetActive(false);
@@ -49,11 +47,6 @@ public class vbButton : MonoBehaviour {
 
     public void SetPanelInactive() {
         sidePanel.SetActive(false);
-        /*
-        SetPanelActive();
-        SetPanelText("Panel is inactive");
-        Debug.Log("FUCK");
-        */
     }
 
     public void SetPanelText(String input) {
@@ -65,26 +58,31 @@ public class vbButton : MonoBehaviour {
         switch (imageTargetNumber) {
             case 0:
                 //vbButtonReset.topPanel.SetActive(true);
+                bread.SetActive(true);
+                butter.SetActive(true);
+                knife.SetActive(false);
+                tomato.SetActive(false);
+
                 animIdleAndPlayBread.anim.SetBool("Play", true);
                 animIdleAndPlayButter.anim.SetBool("Play", true);
                 SetPanelActive();
                 SetPanelText("Step 1:\n1. Find butter and bread\n2. Spread butter on bread\n3. Push done when completed");
                 vbButtonReset.SetTopPanelText(true);
                 StartCoroutine(ExampleCoroutine());
-                knife.SetActive(false);
-                tomato.SetActive(false);
+                
                 break;
             case 1:
                 vbButtonReset.SetTopPanelText(true);
+                bread.SetActive(true);
+                butter.SetActive(false);
+                tomato.SetActive(true);
+                knife.SetActive(true);
                 //vbButtonReset.topPanel.SetActive(true);
                 animIdleAndPlayBread.anim.SetBool("Play", true);
                 animIdleAndPlayKnife.anim.SetBool("Play", true);
                 animIdleAndPlayTomato.anim.SetBool("Play", true);
                 SetPanelText("Step 2:\n1. Find knife and tomato\n2. Use the knife to slice tomato into smaller pieces and place them on bread\n3. Push done when completed");
-                bread.SetActive(true);
-                butter.SetActive(false);
-                tomato.SetActive(true);
-                knife.SetActive(true);
+                
                 StartCoroutine(ExampleCoroutine());
                 break;  
             case 2:
@@ -102,14 +100,13 @@ public class vbButton : MonoBehaviour {
                 break;
         }
     }
-
     
     IEnumerator ExampleCoroutine() {
         //Print the time of when the function is first called.
         Debug.Log("Started Coroutine at timestamp : " + Time.time);
         vbDoneBtnObj = GameObject.Find("DoneBtnObject");
         vbDoneBtnObj.GetComponent<VirtualButtonBehaviour>().enabled = false;
-        //yield on a new YieldInstruction that waits for 5 seconds.
+        //yield on a new YieldInstruction that waits for 3 seconds.
         yield return new WaitForSeconds(3);
         vbDoneBtnObj.GetComponent<VirtualButtonBehaviour>().enabled = true;
 
