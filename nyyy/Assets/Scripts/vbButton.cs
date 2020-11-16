@@ -23,10 +23,6 @@ public class vbButton : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        /*
-        knife.SetActive(false);
-        tomato.SetActive(false);
-        */
         vbButtonReset = GetComponent<vbButtonReset>();
         vbButtonReset.SetTopPanelText(true);
         //vbButtonReset.topPanel.SetActive(false);
@@ -57,22 +53,27 @@ public class vbButton : MonoBehaviour {
     public void CasesForInstructions(int imageTargetNumber) {
         switch (imageTargetNumber) {
             case 0:
-                //vbButtonReset.topPanel.SetActive(true);
+                StartCoroutine(ExampleCoroutine());
+
+                Debug.Log("Case 0");
+                SetPanelActive();
+                vbButtonReset.SetTopPanelText(true);
+                SetPanelText("Step 1:\n1. Find butter and bread\n2. Spread butter on bread\n3. Push done when completed");
+
                 bread.SetActive(true);
                 butter.SetActive(true);
                 knife.SetActive(false);
                 tomato.SetActive(false);
-
                 animIdleAndPlayBread.anim.SetBool("Play", true);
                 animIdleAndPlayButter.anim.SetBool("Play", true);
-                SetPanelActive();
-                SetPanelText("Step 1:\n1. Find butter and bread\n2. Spread butter on bread\n3. Push done when completed");
-                vbButtonReset.SetTopPanelText(true);
-                StartCoroutine(ExampleCoroutine());
                 
+                //StartCoroutine(ExampleCoroutine());
                 break;
             case 1:
+                StartCoroutine(ExampleCoroutine());
+
                 vbButtonReset.SetTopPanelText(true);
+                SetPanelText("Step 2:\n1. Find knife and tomato\n2. Use the knife to slice tomato into smaller pieces and place them on bread\n3. Push done when completed");
                 bread.SetActive(true);
                 butter.SetActive(false);
                 tomato.SetActive(true);
@@ -81,11 +82,12 @@ public class vbButton : MonoBehaviour {
                 animIdleAndPlayBread.anim.SetBool("Play", true);
                 animIdleAndPlayKnife.anim.SetBool("Play", true);
                 animIdleAndPlayTomato.anim.SetBool("Play", true);
-                SetPanelText("Step 2:\n1. Find knife and tomato\n2. Use the knife to slice tomato into smaller pieces and place them on bread\n3. Push done when completed");
                 
-                StartCoroutine(ExampleCoroutine());
+                //StartCoroutine(ExampleCoroutine());
                 break;  
             case 2:
+                StartCoroutine(ExampleCoroutine());
+
                 //vbButtonReset.topPanel.SetActive(true);
                 SetPanelText("The sandwich is done\nPush done to complete the process");
                 vbButtonReset.SetTopPanelText(false);
@@ -93,7 +95,8 @@ public class vbButton : MonoBehaviour {
                 butter.SetActive(false);
                 tomato.SetActive(false);
                 knife.SetActive(false);
-                StartCoroutine(ExampleCoroutine());
+
+                //StartCoroutine(ExampleCoroutine());
                 break;
             case 3:
                 resetInstructions();
@@ -107,7 +110,7 @@ public class vbButton : MonoBehaviour {
         vbDoneBtnObj = GameObject.Find("DoneBtnObject");
         vbDoneBtnObj.GetComponent<VirtualButtonBehaviour>().enabled = false;
         //yield on a new YieldInstruction that waits for 3 seconds.
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(4);
         vbDoneBtnObj.GetComponent<VirtualButtonBehaviour>().enabled = true;
 
         //After we have waited 5 seconds print the time again.
@@ -116,16 +119,12 @@ public class vbButton : MonoBehaviour {
 
 
     public void resetInstructions() {
-        vbButtonReset.SetPanelActive();
-        vbButtonReset.SetTopPanelText(false);
-        tomato.SetActive(false);
-        knife.SetActive(false);
         counter = 0;
+        CasesForInstructions(counter);
     }
 
     public void OnButtonPressed(VirtualButtonBehaviour vb) {
         CasesForInstructions(counter++);
-        //counter++;
     }
 
     public void OnButtonReleased(VirtualButtonBehaviour vb) {

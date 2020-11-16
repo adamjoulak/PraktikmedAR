@@ -10,8 +10,7 @@ public class vbSmoothieResetButton : MonoBehaviour
     public Text textObject;
 
     // Use this for initialization
-    void Start()
-    {
+    void Start() {
         topPanel = GameObject.FindGameObjectWithTag("PanelFindTargetTMP");
         vbBtnObjReset = GameObject.FindGameObjectWithTag("vbBtnObjReset");
         Debug.Log("found reset button");
@@ -19,8 +18,7 @@ public class vbSmoothieResetButton : MonoBehaviour
         vbBtnObjReset.GetComponent<VirtualButtonBehaviour>().RegisterOnButtonReleased(OnButtonReleased);
     }
 
-    public void SetPanelActive()
-    {
+    public void SetTopPanelActive() {
         topPanel.SetActive(true);
     }
     /*
@@ -30,25 +28,21 @@ public class vbSmoothieResetButton : MonoBehaviour
     }
     */
 
-    public void SetTopPanelText(bool isReset)
-    {
+    public void SetTopPanelText(bool isReset) {
         //   textObject = (Text)GameObject.FindGameObjectWithTag("InstructionText").GetComponent<Text>();
 
         textObject = (Text)GameObject.FindGameObjectWithTag("topPanelText").GetComponent<Text>();
-        if (isReset)
-        {
-            textObject.text = "Find all the cutlery & ingredients";
+        if (isReset) {
+            textObject.text = "Find all the objects & ingredients!";
         }
-        else
-        {
-            textObject.text = "Enjoy your meal :)";
+        else {
+            textObject.text = "Bon appetit :)";
         }
 
     }
 
-    public void OnButtonPressed(VirtualButtonBehaviour vb)
-    {
-        SetPanelActive();
+    public void OnButtonPressed(VirtualButtonBehaviour vb) {
+        SetTopPanelActive();
         SetTopPanelText(true);
         Debug.Log("Button RESET pressed");
     }
