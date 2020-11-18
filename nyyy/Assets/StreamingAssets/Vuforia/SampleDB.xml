@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
   <Tracking>
-    <ImageTarget name="qr_vaniljayoghurt" size="0.060000 0.060000" />
-    <ImageTarget name="qr_Strawberry" size="0.060000 0.060000" />
+    <ImageTarget name="qr_VaniljYoghurt" size="0.060000 0.057500" />
+    <ImageTarget name="qr_Strawberry" size="0.060000 0.053035" />
+    <ImageTarget name="qr_Mixer" size="0.060000 0.060000" />
     <ImageTarget name="qr_Glas" size="0.060000 0.060000" />
-    <ImageTarget name="qr_Blueberry" size="0.060000 0.060000" />
     <ImageTarget name="qr_Banana" size="0.060000 0.060000" />
     <ImageTarget name="qr_bread" size="0.060000 0.060000" />
     <ImageTarget name="qr_knife" size="0.060000 0.060000" />
