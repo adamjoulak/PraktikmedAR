@@ -6,6 +6,24 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Rohan's scene/Main Menu.unity
+    guid: 22a3a2360960d784880b21786e47e211
+  - enabled: 1
+    path: Assets/Scenes/Rohan's scene/HmOptions.unity
+    guid: b6ada43d499964d4790a16f200fbb7d4
+  - enabled: 1
+    path: Assets/Scenes/Rohan's scene/HamIngred.unity
+    guid: d53cf89cc6485204fb57bd81c2f84088
+  - enabled: 1
+    path: Assets/Scenes/Rohan's scene/ScnHmIngred.unity
+    guid: f8134ee1d4437d14daf5ebe45aaf5152
+  - enabled: 1
+    path: Assets/Scenes/Rohan's scene/MkeHam.unity
+    guid: 9d8f9cd66837c754d905732a1da7fb05
+  - enabled: 1
+    path: Assets/Scenes/Rohan's scene/ScanOnly.unity
+    guid: e02dc3a79b97c50458742f39c67c4da4
+  - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   m_configObjects:
