@@ -21,7 +21,7 @@ public class vbButtonReset : MonoBehaviour {
         vbBtnObjReset.GetComponent<VirtualButtonBehaviour>().RegisterOnButtonReleased(OnButtonReleased);
     }
 
-    public void SetPanelActive() {
+    public void SetTopPanelActive() {
         topPanel.SetActive(true);
     }
     /*
@@ -36,16 +36,16 @@ public class vbButtonReset : MonoBehaviour {
 
         textObject = (Text)GameObject.FindGameObjectWithTag("topPanelText").GetComponent<Text>();
         if (isReset) {
-            textObject.text = "Find all the cutlery & ingredients";
+            textObject.text = "Find all the objects & ingredients!";
         }
         else {
-            textObject.text = "Enjoy your meal :)";
+            textObject.text = "Bon appetit :)";
         }
-        
+
     }
 
     public void OnButtonPressed(VirtualButtonBehaviour vb) {
-        SetPanelActive();
+        SetTopPanelActive();
         SetTopPanelText(true);
         Debug.Log("Button RESET pressed");
     }
