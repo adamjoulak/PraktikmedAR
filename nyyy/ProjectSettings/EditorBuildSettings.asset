@@ -5,14 +5,17 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/StartPanel.unity
     guid: dd81482bf3c062f469058464bfd614ee
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SandwichScene.unity
     guid: 098e0a71900ccf84b9f801ec0bad70f6
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SmoothieScene.unity
     guid: 20ee05fe5a7865944b422ee3ecc7a68f
+  - enabled: 1
+    path: Assets/Scenes/3D.unity
+    guid: c1f7bf2e2e530984f9e97a5db30c7b9e
   m_configObjects:
     UnityEditor.XR.ARKit.ARKitSettings: {fileID: 11400000, guid: fc6c999241b5d461b87cebc6f984124c, type: 2}
