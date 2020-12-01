@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
+  <Tracking>
+    <ImageTarget name="Tomato" size="0.060000 0.060000" />
+    <ImageTarget name="Sauce" size="0.060000 0.060000" />
+    <ImageTarget name="Meat" size="0.060000 0.060000" />
+    <ImageTarget name="Ketchup" size="0.060000 0.060000" />
+    <ImageTarget name="Cucumber" size="0.060000 0.060000" />
+    <ImageTarget name="Cheese" size="0.060000 0.060000" />
+    <ImageTarget name="Bread" size="0.060000 0.060000" />
+    <ImageTarget name="JDiamonds" size="0.060000 0.081485" />
+    <ImageTarget name="QDiamonds" size="0.060000 0.084000" />
+    <ImageTarget name="KDiamonds" size="0.060000 0.084000" />
+    <ImageTarget name="Spades" size="0.060000 0.081926" />
+  </Tracking>
+</QCARConfig>
