@@ -66,7 +66,6 @@ public class vbButton : MonoBehaviour {
                 tomato.SetActive(false);
                 animIdleAndPlayBread.anim.SetBool("Play", true);
                 animIdleAndPlayButter.anim.SetBool("Play", true);
-                
                 //StartCoroutine(ExampleCoroutine());
                 break;
             case 1:
@@ -116,7 +115,13 @@ public class vbButton : MonoBehaviour {
         //After we have waited 5 seconds print the time again.
         Debug.Log("Finished Coroutine at timestamp : " + Time.time);
     }
+    public void activateArror() {
 
+    }
+
+    public void activateErrorText() {
+
+    }
 
     public void resetInstructions() {
         counter = 0;
